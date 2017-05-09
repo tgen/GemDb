@@ -26,7 +26,7 @@
 #######   Determines which Configuration Library is needed ###########################
 
 ##### DEFAULTS ######
-our $runType = "PROD";
+our $runType = "DEFAULT";
 our $VERSION = '3.91';
 ##### DEFAULTS ######
 
