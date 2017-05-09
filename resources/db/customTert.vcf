@@ -1,3 +1,0 @@
-#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
-5	1295228	.	G	A	255	PASS	gene=TERT;effect=TERT(-146C>T);aberration_effect=TERT(-146C>T);impact=significant;report=standard;aberration_aberration_value=-146C>T;aberration_aberration_type2=PromoterVariant;type=SNV;aberration_type=SNV
-5	1295250	.	G	A	255	PASS	gene=TERT;effect=TERT(-124C>T);aberration_effect=TERT(-146C>T);impact=significant;report=standard;aberration_aberration_value=-124C>T;aberration_aberration_type2=PromoterVariant;type=SNV;aberration_type=SNV

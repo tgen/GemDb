@@ -235,6 +235,7 @@ sub loadDefaults {
                     ],
                     deseqFile => [
 			{field => 'PADJ', oper => '>', val1 => 0.05},
+			{field => 'PADJ', oper => 'EQUALS', val1 => 'NA'},
 		    	{field => 'LOG2FC',  oper => 'BETWEEN', val1 => -2, val2 => 2}
 		    ],
 		    thfFile   => [{field => 'qual',   oper => '<', val1 => 100}]
@@ -247,9 +248,6 @@ sub loadDefaults {
                         {field => 'Gap', oper => '<=', val1 => 1500},
                         {field => 'NormalAlleleRatio', oper => '>=', val1 => 0.01}
                     ],
-                    #tumorOnlyPointMutationFile => [
-                    #    {field => 'filter',oper => 'NOT', val1 => 'SomaticPASS'}
-                    #],
                     GATK_Haplocaller    => [
                          {field => 'qual',oper => '<=', val1 => 300}
                     ],
