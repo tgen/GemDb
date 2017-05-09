@@ -1,0 +1,12 @@
+# Paste from excel (watchout for ^M's) by using VI
+leeloo:/ngd-data/rulesDir/vi rules.ctcaSCLC.110514.tsv
+#  Double checking that I actually pasted
+leeloo:/ngd-data/rulesDir/wc -l rules.ctcaSCLC.110514.tsv
+#  Inserting rules (no BBB) - should take 10 minutes or so
+./BuildAnnotationDb.pl rules=rules.ctcaSCLC.110514.tsv >& out&
+#  Add blood brain barrier
+./BuildAnnotationDb.pl bbb=bbb.ivy.100714.tsv >& out&
+
+
+# Should you want to delete rules that you inserted, go to walle.tgen.org and remove ({drug_rules_version:'rules.ctcaSCLC.110514.tsv'})
+#  That's it.  Any new inserts will have the rules from rules.ctcaSCLC.110514.tsv

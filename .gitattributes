@@ -1,0 +1,2 @@
+*.locations.txt filter=lfs diff=lfs merge=lfs -text
+*HASH filter=lfs diff=lfs merge=lfs -text
