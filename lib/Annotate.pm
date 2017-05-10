@@ -1604,10 +1604,19 @@ sub assignAberrationDoc {
             $reportRef->{'aberration_filter'} = "PASS";
         }
     }
-    
-    if ( $biomarkerRef->{'variants'}->[0]->{'filter'} eq "LOWQC" && $reportRef->{'aberration_filter'} eq "PASS" ) {
-        $reportRef->{'aberration_filter'} = "LOWQC";
-    }
+     ### Loop through the variants array to check if any of the variants.filter fields have a PASS, if so aberration_filter will be set to PASS
+     my $tempFilter = "LOWQC";
+     foreach my $variantRef ( @{ $biomarkerRef->{'variants'} } ) {
+     	my $filter = $variantRef->{'filter'};
+     	if ($filter eq "PASS") {
+        	$tempFilter = "PASS";
+        }
+     }
+     if ( $tempFilter eq "LOWQC" && $reportRef->{'aberration_filter'} eq "PASS" ) {
+     	$reportRef->{'aberration_filter'} = "LOWQC";
+     }
+   
+                                                                      
     if ( exists( $reportRef->{'aberration_name'} ) ) { $reportRef->{'aberration_type2'} = $reportRef->{'aberration_name'} }
     $biomarkerRef->{'aberration'} = $reportRef;
     $biomarkerRef->{'effect'}     = $biomarkerRef->{'aberration'}->{'effect'};
