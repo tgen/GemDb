@@ -13,19 +13,19 @@ How to Insert Data into GemDB
 	The pipeline has an option to automatically copy vcfs over to this folder - contact jetstream@tgen.org for how to enable this. 
 	Otherwise follow these steps to manually create the folders and copy over your files.
 		
-		1) Create a 'project' level directory of your choosing.  i.e. on unix -> mkdir /ngd-data/VCF/myProject.  This is usually the name of the study you're working on (i.e. NMTRC, SU2C, etc..)
+	1) Create a 'project' level directory of your choosing.  i.e. on unix -> mkdir /ngd-data/VCF/myProject.  This is usually the name of the study you're working on (i.e. NMTRC, SU2C, etc..)
 		
-		2) Create 'sample' directories under the project you just made for each individual sample you have.  i.e. /ngd-data/VCF/myProject/mySample1, /ngd-data/VCF/myProject/mySample2, etc...
+	2) Create 'sample' directories under the project you just made for each individual sample you have.  i.e. /ngd-data/VCF/myProject/mySample1, /ngd-data/VCF/myProject/mySample2, etc...
 		
-		3) VCFs ->
-			Germline -> 	
-					Create a directory named 'germline' under your sample(s) directory.  Then place the germline vcfs for the respective sample in this directory.  
-					i.e. /ngd-data/VCF/myProject/mySample1/germline/example.HC_All.snpEff.vcf
-			Tumor ->
-					Create a directory named for the tumor type or whatever you desire.  i.e. 'breast', 'lung', 'prostate'.  Then place the somatic vcfs in this directory (merged vcf, thf, cna.seg.vcf, etc...)
-					i.e. /ngd-dat/VCF/myProject/mySample1/germline/example.cna.seg.vcf
+	3) VCFs ->
+		Germline -> 	
+				Create a directory named 'germline' under your sample(s) directory.  Then place the germline vcfs for the respective sample in this directory.  
+				i.e. /ngd-data/VCF/myProject/mySample1/germline/example.HC_All.snpEff.vcf
+		Tumor ->
+				Create a directory named for the tumor type or whatever you desire.  i.e. 'breast', 'lung', 'prostate'.  Then place the somatic vcfs in this directory (merged vcf, thf, cna.seg.vcf, etc...)
+				i.e. /ngd-dat/VCF/myProject/mySample1/germline/example.cna.seg.vcf
 		
-		4) You're done!  From here the database scripts will pickup these files and place them thru a set of filters (see 'Filtering' section below) before inserting the PASS/LowQC variants into the database.   
+	4) You're done!  From here the database scripts will pickup these files and place them thru a set of filters (see 'Filtering' section below) before inserting the PASS/LowQC variants into the database.   
 
 
 Filtering
