@@ -5,10 +5,10 @@ A mongo database for storing RNA/DNA variant data from the sequencing pipeline.
 contact tizatt@tgen.org for running/installing.
 
 
-##What is GemDb?
+## What is GemDb?
 	A mongo database containing variant data (from VCF files) from genomic (RNA/DNA) samples.  Each row in the database represents a variant from one of the various vcf files for a sample.
 
-##How to Insert Data into GemDB
+## How to Insert Data into GemDB
 	As a user there is a dropbox on isilon - /ngd-data/VCF/ - where you can place your vcf files.  The database supports various vcf files from the sequencing pipeline, both RNA and DNA.
 	The pipeline has an option to automatically copy vcfs over to this folder - contact jetstream@tgen.org for how to enable this. 
 	Otherwise follow these steps to manually create the folders and copy over your files.
@@ -30,13 +30,13 @@ contact tizatt@tgen.org for running/installing.
 	4. You're done!  From here the database scripts will pickup these files and place them thru a set of filters (see 'Filtering' section below) before inserting the PASS/LowQC variants into the database.   
 
 
-##Filtering
+## Filtering
 
 	By default all variants are marked as "PASS" from a VCF file.  The other two options are "LowQC" and "FAIL".  Below is an example of the set of filters (look at conf.pm for actual values) that are applied to each row in a VCF file.  Fields from the vcf file specified are used as filters.  PASS and LowQC variants are inserted into the database, FAIL variants are excluded.
 
-#####Example Filters:
+#### Example Filters:
 
-   	Structural Variants 
+   	**Structural Variants** 
 		LowQC: 
 			10 < Qual < 25
 		FAIL: 
@@ -44,26 +44,26 @@ contact tizatt@tgen.org for running/installing.
 			Gap <= 1500 OR
 			NormalAlleleRatio >= 0.01
 	
-	CNV 
+	**CNV**
 		LowQC: 
 			-1 < Log2FC < 1
 	
-	LumosVar CNV
+	**LumosVar CNV**
 		LowQC:
 			-1 < Log2FC < 1 OR
 			SVLEN > 2,5000,000
 		
-	Merged VCF
+	**Merged VCF**
 		LowQC: 
 			CALLERS_COUNT <= 1
     
-	GATK Haplo Caller
+	**GATK Haplo Caller**
 		LowQC:
 			Qual <= 500
 		FAIL:
 			Qual <= 300
 
-	Seurat Point Mutation Caller
+	**Seurat Point Mutation Caller**
 		LowQC:
 			Qual <= 20 OR
                         AR1 >= 0.02 OR
@@ -74,7 +74,7 @@ contact tizatt@tgen.org for running/installing.
 			AR1 >= 0.03 OR
 			AR2 <= 0.03
 
-	LumosVar Point Mutation Caller
+	**LumosVar Point Mutation Caller**
 		LowQC:
 			filter != SomaticPASS
 		FAIL:
@@ -84,7 +84,7 @@ contact tizatt@tgen.org for running/installing.
 			filter == GermlineHomPASS OR
 			filter == GermlineHomLowQC
 					 
-	Cuffdiff
+	**Cuffdiff**
 		LowQC:
 			QVALUE > 0.05 OR
 			SIGNIFICANT != 'yes' OR
@@ -94,7 +94,7 @@ contact tizatt@tgen.org for running/installing.
 			PVALUE > 0.01 OR
 			LOG2FC == (-)inf
 	
-	Deseq
+	**Deseq**
 		LowQC:
 			PADJ > 0.05 OR
 			PADJ == 'NA' OR
@@ -105,7 +105,7 @@ contact tizatt@tgen.org for running/installing.
 			-1.9 < LOG2FC < 1.9 OR
 			LOG2FC == (-)inf
 
-	Tophat Fusion
+	**Tophat Fusion**
 		LowQC:
 			Qual < 100
 		FAIL:
