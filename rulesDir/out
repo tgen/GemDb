@@ -1,4 +1,0 @@
-filePath:rules.FDAapproved.conservative.051215.tsv
-mdsub: 535fd9d2193abbf2701312ef80656712 wc: 672
-
--Module insertRules function:insertRules filepath:rules.FDAapproved.conservative.051215.tsv collection:rules hostname:localhost:27555  adding rules rules.FDAapproved.conservative.051215.tsv
