@@ -33,7 +33,7 @@ By default all variants are marked as "PASS" from a VCF file.  The other two opt
 
 #### Example Filters:
 
-   	**Structural Variants** 
+   	__Structural Variants__ 
 		LowQC: 
 			10 < Qual < 25
 		FAIL: 
@@ -41,26 +41,26 @@ By default all variants are marked as "PASS" from a VCF file.  The other two opt
 			Gap <= 1500 OR
 			NormalAlleleRatio >= 0.01
 	
-	**CNV**
+	__CNV__
 		LowQC: 
 			-1 < Log2FC < 1
 	
-	**LumosVar CNV**
+	__LumosVar CNV__
 		LowQC:
 			-1 < Log2FC < 1 OR
 			SVLEN > 2,5000,000
 		
-	**Merged VCF**
+	__Merged VCF__
 		LowQC: 
 			CALLERS_COUNT <= 1
     
-	**GATK Haplo Caller**
+	__GATK Haplo Caller__
 		LowQC:
 			Qual <= 500
 		FAIL:
 			Qual <= 300
 
-	**Seurat Point Mutation Caller**
+	__Seurat Point Mutation Caller__
 		LowQC:
 			Qual <= 20 OR
                         AR1 >= 0.02 OR
@@ -71,7 +71,7 @@ By default all variants are marked as "PASS" from a VCF file.  The other two opt
 			AR1 >= 0.03 OR
 			AR2 <= 0.03
 
-	**LumosVar Point Mutation Caller**
+	__LumosVar Point Mutation Caller__
 		LowQC:
 			filter != SomaticPASS
 		FAIL:
@@ -81,7 +81,7 @@ By default all variants are marked as "PASS" from a VCF file.  The other two opt
 			filter == GermlineHomPASS OR
 			filter == GermlineHomLowQC
 					 
-	**Cuffdiff**
+	__Cuffdiff__
 		LowQC:
 			QVALUE > 0.05 OR
 			SIGNIFICANT != 'yes' OR
@@ -91,7 +91,7 @@ By default all variants are marked as "PASS" from a VCF file.  The other two opt
 			PVALUE > 0.01 OR
 			LOG2FC == (-)inf
 	
-	**Deseq**
+	__Deseq__
 		LowQC:
 			PADJ > 0.05 OR
 			PADJ == 'NA' OR
@@ -102,7 +102,7 @@ By default all variants are marked as "PASS" from a VCF file.  The other two opt
 			-1.9 < LOG2FC < 1.9 OR
 			LOG2FC == (-)inf
 
-	**Tophat Fusion**
+	__Tophat Fusion__
 		LowQC:
 			Qual < 100
 		FAIL:
