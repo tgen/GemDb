@@ -44,6 +44,9 @@ By default all variants are marked as "PASS" from a VCF file.  The other two opt
 	CNV
 		LowQC: 
 			-1 < Log2FC < 1
+		FAIL:
+			-0.5 <= Log2FC <= 0.5 OR
+			cnv length > 25,000,000  
 	
 	LumosVar CNV
 		LowQC:
