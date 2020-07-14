@@ -1,9 +1,6 @@
-# GemDb
+# What is GemDb
 
 A mongo database for storing and annotating VCF files.  VCF's from the Phoenix pipeline, or any other pipeline can be inserted and annotated with latest Dbnfsp, Cosmic, Clinvar, etc...
-
-## What is GemDb?
-A mongo database containing DNA/RNA events and public annotations. 
 
 ## How do I use GemDb?
 *To use the existing TGen GemDb instance (containing samples from various TGen projects (germline and somatic), please follow the wiki(https://github.com/tgen/GemDb/wiki).  This will guide you through uploading your files, filtering, annotations and how to query them or extract them into excel files or reports.
