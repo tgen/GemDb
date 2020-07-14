@@ -35,7 +35,8 @@ If you would like to setup your own instance of GemDb - follow these instruction
             Make sure to change the '$hostname' within 'BuildRulesDb.pl' to the '$hostname' from Step 1. 
       
 3. Load variants (VCF files) into your database
-     Clone the appropriate genome build version below into your local server and follow the instructions from there.  Remember your '$hostname' from Step 1 as it will be where variants are loaded as well.
+         
+         - Clone the appropriate genome build version below into your local server and follow the instructions from there.  Remember your '$hostname' from Step 1 as it will be where variants are loaded as well.
 
 Build 37 - https://github.com/tgen/GemDb37
 
