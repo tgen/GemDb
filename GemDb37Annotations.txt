@@ -1,1 +1,18 @@
-Annotation source	File descriptor/version	FilenamedbSNP	dbsnp Build 150	Build150.vcfClinVar	clinvar 20170705	clinvar_20170705.vcf	common and clinical 20170705	common_and_clinical_20170705.vcf1000 genomes	1000 genomes Phase 3 calls	KG3.head.mPASS.vc		gnomAD	gnomad exomes 2.0.1	gnomad.exomes.r2.0.1.sites.vcfCOSMIC	v82	CosmicCodingMuts.vcf		CosmicNonCodingVariants.vcfdbNSFP	https://sites.google.com/site/jpopgen/dbNSFP	" dbNSFP3.5a_variant.chr[1-22,X,Y,M]"		dbNSFP3.5_gene.completeGene Only files		UniProt	https://www.uniprot.org/downloads	uniprot_sprot.xmlorphanet	https://www.orpha.net	orphanet.txtGeneCards	https://www.genecards.org/	genecards.txtComparitive Toxicogenomics Database	http://ctdbase.org/	CTD_genes_diseases.tsvGene Ontology	http://geneontology.org/	ISCA	http://dbsearch.clinicalgenome.org/search/	isca.txt
+Annotation source	File descriptor/version	Filename
+dbSNP	dbsnp Build 150	Build150.vcf
+ClinVar	clinvar 20170705	clinvar_20170705.vcf
+	common and clinical 20170705	common_and_clinical_20170705.vcf
+1000 genomes	1000 genomes Phase 3 calls	KG3.head.mPASS.vc
+		
+gnomAD	gnomad exomes 2.0.1	gnomad.exomes.r2.0.1.sites.vcf
+COSMIC	v82	CosmicCodingMuts.vcf
+		CosmicNonCodingVariants.vcf
+dbNSFP	https://sites.google.com/site/jpopgen/dbNSFP	" dbNSFP3.5a_variant.chr[1-22,X,Y,M]"
+		dbNSFP3.5_gene.complete
+Gene Only files		
+UniProt	https://www.uniprot.org/downloads	uniprot_sprot.xml
+orphanet	https://www.orpha.net	orphanet.txt
+GeneCards	https://www.genecards.org/	genecards.txt
+Comparitive Toxicogenomics Database	http://ctdbase.org/	CTD_genes_diseases.tsv
+Gene Ontology	http://geneontology.org/	
+ISCA	http://dbsearch.clinicalgenome.org/search/	isca.txt

@@ -1,0 +1,6 @@
+58:	syntax error at ') {', didn't see one of: case elsif for foreach given if switch unless until when while
+62:	expecting 'else' to follow one of 'if|elsif|unless|case|when'
+
+197: $val = @ind($altCount);
+            ----^           
+found ( where operator expected (previous token underlined)
