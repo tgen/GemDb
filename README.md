@@ -19,7 +19,8 @@ If you would like to setup your own instance of GemDb - follow these instruction
       Use the existing Annotate db in the main TGen GemDb.  
           
           - cd /labs/ngd-data/prodCentralDB/backups
-            Using the $hostname from Step 1 ->
+          
+            [Using the $hostname from Step 1]
             
             mongorestore --host $hostname --db AnnotateBy GemDb37/AnnotateBy (for Build37)
             
