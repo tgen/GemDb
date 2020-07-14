@@ -8,15 +8,25 @@ A mongo database for storing and annotating VCF files.  VCF's from the Phoenix p
 ## Setting up your own GemDb instance
 If you would like to setup your own instance of GemDb - follow these instructions below:
 
-1. Create a new mongo connection on your local server. Note the server and port that you created (localhost:28579) - this is your *$hostname*.
+1. Install MongoDb
+           
+           - Download here: https://www.mongodb.com/try/download/community
+           - Follow instructions for installing it on your server, and then start up a mongo instance - specifying a specific port (ex. localhost:28579)
+             This is your '$hostname'.
 
 2. Load Annotations:
       
       Use the existing Annotate db in the main TGen GemDb.  
           
-          - Go to isilon directory (/labs/ngd-data/prodCentralDB/backups)
-            From there 'cd' into 'GemDb37' or 'GemDb38', depending on the genome build version you plan on working with.
-            Then 'mongorestore' the 'AnnotateBy' folder into your mongo connection from step 1.  Be sure you are restoring the 'AnnotateBy' folder ONLY.
+          - cd /labs/ngd-data/prodCentralDB/backups
+            Using the $hostname from Step 1 ->
+            
+            mongorestore --host $hostname --db AnnotateBy GemDb37/AnnotateBy (for Build37)
+            
+            OR 
+            
+            mongorestore --host $hostname --db AnnotateBy GemDb38/AnnotateBy (for Build38)
+            
             
       To add additional annotations to your copy of the main TGen GemDb AnnotateBy:
           
