@@ -1,6 +1,6 @@
 # GemDb
 
-A mongo database for storing RNA/DNA variant data from the sequencing pipeline.
+A mongo database for storing RNA/DNA/proteomic data from the Phoenix pipeline.
 
 contact tizatt@tgen.org for running/installing.
 
