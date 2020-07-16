@@ -10,10 +10,8 @@ sub new {
 		my $database=shift;
 		my $collection=shift;
 		my $hostName=shift;
-		my $conn = MongoDB::Connection->new(host => "$hostName");
+		my $conn = MongoDB::MongoClient->new(host => "$hostName");
 		my $timeOut=100000000;
-		$conn->wtimeout($timeOut);
-		$conn->query_timeout($timeOut);
 		my $db = $conn->get_database($database);
 		my $genes = $db->get_collection($collection);
 		return ($conn,$db,$genes);

@@ -47,25 +47,25 @@ sub loadTo {
       $headerLine=(<RULEFILE>);
       chomp($headerLine);
       $headerLine=~s/\./\+/g;
-      @headArray=split(/\t/,$headerLine); 
+	@headArray=split(/\t/,$headerLine); 
       $RULES->ensure_index({'filename'=>1});      
       $RULES->remove({'RulesVersion'=>$filename});      
       LOOP: while (<RULEFILE>) {
           $line=$_;
-          chomp($line);
-          @fields=split(/\t/,$line);
+	  chomp($line);
+	  @fields=split(/\t/,$line);
           my %ref=();
           my $toInsert=\%ref;
           foreach ($i=0;$i<=$#headArray;++$i) {
-               if (!defined($fields[$i])){ $fields[$i]="NULL"}      
-               if (length($fields[$i])==0) { $fields[$i]="NULL"}            
+		if (!defined($fields[$i])){ $fields[$i]="NULL"}      
+               if (length($fields[$i])==0) { $fields[$i]="NULL"}
                $toInsert->{$headArray[$i]}=$fields[$i];
           }          
           $toInsert->{'filepath'}=$filePath;
           $toInsert->{'filename'}=$filename;
           $toInsert->{'RulesVersion'}=$filename;          
           $toInsert->{'drug_rules_version'}=$filename;
-          if ($toInsert->{'biomarker_type'}=~/fused_gene/i) {
+	if ($toInsert->{'biomarker_type'}=~/fused_gene/i) {
                      $toInsert->{'class'}="biomarker";
                      $toInsert->{'type'}=uc($toInsert->{"biomarker_type"});
                      $toInsert->{'entrez'}=$toInsert->{"biomarker_entrez"};
@@ -132,7 +132,7 @@ sub loadTo {
                                $toInsert->{'aberration_lookup'}=$toInsert->{'symbol'} . "_" . uc($toInsert->{'aberration_value'});   
                                $RULES->insert($toInsert,{'safe'=>1});    next LOOP;             
                      }    
-                } elsif ($toInsert->{'biomarker_aberration_type'}=~/cnv/i || $toInsert->{'biomarker_aberration_type'}=~/exp/i ) {           
+                } elsif ($toInsert->{'biomarker_aberration_type'}=~/cnv/i || $toInsert->{'biomarker_aberration_type'}=~/exp/i || $toInsert->{'biomarker_aberration_type'}=~/prot_exp/i ) {           
                    $toInsert->{'class'}="biomarker";
                    $toInsert->{'type'}=uc($toInsert->{"biomarker_type"});
                    $toInsert->{'entrez'}=$toInsert->{"biomarker_entrez"};
