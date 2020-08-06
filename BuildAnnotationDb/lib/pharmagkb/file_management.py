@@ -18,6 +18,7 @@ def load_file(filename):
             reader = csv.DictReader(file, dialect='excel-tab')
             for row in reader:
                 rowDict = dict(row)
-                filtered = dict((k, v) for k, v in rowDict.items() if (k or v) is not None and (k or v) != '')
-                tsv_file.append(filtered)
+                filtered = dict((k, v) for k, v in rowDict.items() if k is not None and k != '')
+                filtered2 = dict((k, v) for k, v in filtered.items() if v is not None and v != '')
+                tsv_file.append(filtered2)
         return tsv_file
