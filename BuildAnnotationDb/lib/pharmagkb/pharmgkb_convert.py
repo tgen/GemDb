@@ -7,7 +7,7 @@ annoDb = annotate_client["AnnotateBy"]
 coordCollection = annoDb['coord']
 testCollection = annoDb['test']
 geneCollection = annoDb['gene']
-pharmgkb_dir = "/Users/tizatt/Desktop/pharmvar.pharmgkb"
+pharmgkb_dir = "/labs/ngd-data/prodCentralDB/BuildAnnotationDb/db/pharmvar.pharmgkb//pharmvar.pharmgkb"
 drug_label_dir = "/drugLabels"
 search_pattern = "*.tsv"
 
