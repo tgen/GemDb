@@ -1,0 +1,3 @@
+head -n2 CYP26A1/GRCh38/CYP26A1.NC_000010.11.haplotypes.tsv > pharmvar-4.1.7.header.txt
+cat pharmvar-4.1.7.header.txt pharmvar_GRCh38_haplotypes.tsv > pharmvar_GRCh38_haplotypes_combined.tsv
+for filename in `find . -wholename "*GRCh38*tsv"`; do tsv_line=`grep -v "^#" $filename | grep -v "^Haplotype" | grep -v "REFERENCE"` ; echo "$tsv_line\r" >> pharmvar_GRCh38_haplotypes.tsv; done;

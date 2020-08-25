@@ -1,0 +1,6 @@
+---
+  annotate-port: 26321
+  annotate-host: "labdb01.tgen.org"
+  annotate-db: "AnnotateBy"
+  coord-collection: "coord"
+  gene-collection: "gene"

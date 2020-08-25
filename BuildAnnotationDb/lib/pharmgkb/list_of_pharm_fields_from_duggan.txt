@@ -1,0 +1,6 @@
+PGx on FDA Label#
+CPIC Level of Evidence#
+PharmGKB Level of Evidence#
+Very Important Pharmacogene*
+Has [PGx] Variant Annotation*
+Pathways (PharmGKB)

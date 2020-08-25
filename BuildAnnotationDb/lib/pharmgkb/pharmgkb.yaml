@@ -1,0 +1,42 @@
+---
+  file_directory: /labs/ngd-data/prodCentralDB/BuildAnnotationDb/db/pharmvar.pharmgkb/
+  drug_label_subdirectory: /drugLabels
+  search_pattern: "*.tsv"
+  files:
+    coord:
+      clinical_ann_metadata_file :
+        key: Location
+        short_name: cl_ann
+      variant_drug_ann:
+        key: Variant
+        short_name: var_drug
+      var_fa_ann :
+        key: Variant
+        short_name: var_fa
+      var_pheno_ann :
+        key: Variant
+        short_name: var_pheno
+      automated_annotations:
+        key: Variation Name
+        short_name: auto
+      clinicalVariants :
+        key: variant
+        short_name: clin_var
+    gene:
+      gene-drug:
+        drug_labels:
+          drugLabels.byGene:
+            key: Gene Symbol
+            shortname: drug
+          drugLabels:
+            key: PharmGKB ID
+            shortname: drug
+        cpicPairs:
+          key: Gene
+          shortname: cpicPairs
+          fields: [Drug, Guideline, CPIC Level, PharmGKB Level of Evidence,
+                   PGx on FDA Label]
+      genes:
+        key: Symbol
+        shortname: pharmgkb.gene
+        fields: [Is VIP, Has Variant Annotation]
