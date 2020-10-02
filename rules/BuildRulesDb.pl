@@ -4,7 +4,7 @@ use FindBin;                 # locate this script
 require "$FindBin::Bin/insertRules.pm";  # use the parent directory
 require "$FindBin::Bin/initMongo.pm";  # use the parent directory
 
-$hostName=#your hostname;
+$hostName="labdb01.tgen.org:26321";
 
 foreach my $arg (@ARGV) {
     chomp($arg);

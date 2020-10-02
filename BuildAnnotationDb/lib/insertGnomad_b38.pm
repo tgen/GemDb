@@ -11,7 +11,7 @@ sub loadTo {
       my $collection=shift;
       my $hostName=shift;	
       my ($conn,$db,$gnomad)=initMongo->new('AnnotateBy',$collection,$hostName);
-      my @FILES=`ls -1 db/gnomad/b38/gnomad.genomes.r2.1.1.sites*bgz`;
+      my @FILES=`ls -1 /data/db/annotations/gnomad3/gnomad.genomes.r3.0.sites.vcf.gz`;
 	  foreach $file (@FILES) {
 		  my $done={};
 		  chomp($file);
@@ -20,10 +20,14 @@ sub loadTo {
 		  $header=(<FILE>);
 		  chomp($header);
 		  #&addHead;
+		  my $c=0;
 		  LOOP: while(<FILE>) {
 			  next if $_ =~ m/^#/g;
+			  
 			  $line = $_;
 			  @temp = split("\t",$line);                   
+			  ++$c;
+          		  if ( $c % 10000 == 0 ) { print "Counter is at : $c\n"; }
 			  %hash=();
 			  %hashAnnotate=();
 			  $hash{'coord'}=join(':',$temp[0],$temp[1],$temp[3],$temp[4]);                  
@@ -32,18 +36,19 @@ sub loadTo {
 			  @infoFields = split(";",$infoLine);
 			  foreach $infoField (@infoFields) {
 			  	@pair=split("=",$infoField);
-				if ($pair[0] eq "AC" || $pair[0] eq "AN" || $pair[0] eq "AF" || $pair[0] eq "nhomalt") {
-					if ($pair[0] eq "AF"){
-						$af_num = $pair[1];
-						if ($af_num =~ /e/){
-							$af_num = sn_to_dec($af_num);
-						}
-						$pair[1] = $af_num * 1;
-					}
-					else{
-						$pair[1] = int($pair[1]);
-					}
-					$hash{"gnomad_$pair[0]"}=$pair[1];
+				if ($pair[0] ne "vep") {
+				#if ($pair[0] eq "AC" || $pair[0] eq "AN" || $pair[0] eq "AF" || $pair[0] eq "nhomalt") {
+					#if ($pair[0] eq "AF"){
+					#	$af_num = $pair[1];
+					#	if ($af_num =~ /e/){
+					#		$af_num = sn_to_dec($af_num);
+					#	}
+					#	$pair[1] = $af_num * 1;
+					#}
+					#else{
+					#	$pair[1] = int($pair[1]);
+					#}
+					$hash{"gnomad_genomes_$pair[0]"}=$pair[1];
 				}
 			  }
 			  #print map { "$_ => $hash{$_}\n" } keys %hash; 
@@ -53,7 +58,7 @@ sub loadTo {
 		close (FILE);
 	 }
   $idx = Tie::IxHash->new("coord"=> 1); 
-  $gnomad->ensure_index($idx);
+  #$gnomad->ensure_index($idx);
 }
 
 sub addToCollections {

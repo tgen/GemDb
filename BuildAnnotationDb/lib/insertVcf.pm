@@ -154,7 +154,7 @@ sub loadTo {
 				$varInfo->{'cosmicID'} = $val;
 				$insert		       = 1;
 			}
-                        elsif ( $key eq "CNT" ) {
+                        elsif ( index($dbName, "cosmic") != -1 && $key eq "CNT" ) {
                             $varInfo->{'cosmicCount'} = int($val);
                             $insert                   = 1;
                             $varInfo->{$key}          = $val;

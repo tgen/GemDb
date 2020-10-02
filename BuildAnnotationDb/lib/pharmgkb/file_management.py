@@ -1,7 +1,9 @@
 import csv
 import sys
 import optparse
+import gzip
 maxInt = sys.maxsize
+
 
 def parser():
     parser = optparse.OptionParser()
@@ -12,18 +14,22 @@ def parser():
     return parser
 
 
-def load_file(filename):
-    if filename.endswith("tsv"):
+def load_tsv_file(filename):
+    if filename.endswith("tsv") or filename.endswith("maf.gz"):
         tsv_file = []
-        with open(filename) as file:
-            csv.field_size_limit(sys.maxsize)
-            reader = csv.DictReader(file, dialect='excel-tab')
-            for row in reader:
-                rowDict = dict(row)
-                filtered = dict((k, v) for k, v in rowDict.items() if k is not None and k != '')
-                filtered2 = dict((k, v) for k, v in filtered.items() if v is not None and v != '')
-                tsv_file.append(filtered2)
-        return tsv_file
+
+        if filename.endswith("gz"):
+            input = gzip.GzipFile(filename, "rb")
+        else:
+            input = open(filename, "rb")
+        csv.field_size_limit(sys.maxsize)
+        reader = csv.DictReader(input, dialect='excel-tab')
+        for row in reader:
+            row_dict = dict(row)
+            filtered = dict((k, v) for k, v in row_dict.items() if k is not None and k != '')
+            filtered2 = dict((k, v) for k, v in filtered.items() if v is not None and v != '')
+            tsv_file.append(filtered2)
+    return tsv_file
 
 
 def delete_fields(record, search_id):

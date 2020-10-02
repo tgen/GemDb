@@ -1,6 +1,7 @@
+import fnmatch
+import os
 from pymongo import MongoClient
-import file_management
-import os, fnmatch
+from lib.pharmgkb import file_management
 
 pharmgkb_yaml = "pharmgkb.yaml"
 annotate_client = MongoClient("dback-optane1.tgen.org", 28333)
